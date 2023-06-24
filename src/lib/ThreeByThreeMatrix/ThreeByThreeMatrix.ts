@@ -1,4 +1,4 @@
-import ThreeVector from "./threeVector";
+import ThreeVector from "../ThreeVector/ThreeVector";
 
 class ThreeByThreeMatrix {
     private _threeByThreeMatrix: number[][];
