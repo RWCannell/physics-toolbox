@@ -10,18 +10,7 @@ class ThreeByThreeMatrix {
             this._threeByThreeMatrix = matrix;
         }
     }
-    // private _threeByThreeMatrix: number[][];
 
-    // constructor() {
-    //     this._threeByThreeMatrix = [];
-
-    //     for(let i: number = 0; i < 3; i++) {
-    //         this._threeByThreeMatrix[i] = [];
-    //         for(let j: number = 0; j < 3; j++) {
-    //             this._threeByThreeMatrix[i][j] = new Thing();
-    //         }
-    //     }
-    // }
     /**
      * Return the numerical values of the three-by-three matrix
      */

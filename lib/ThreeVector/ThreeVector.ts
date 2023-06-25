@@ -92,6 +92,15 @@ class ThreeVector {
         const result = Math.sqrt(squaredResult).toFixed(2);
         return parseFloat(result);
     }
+
+    public dot(v: ThreeVector): number {
+        let result: number = 0;
+
+        for (let i: number = 0; i < 3; i++) {
+            result += this._threeVector[i]*v.threeVector[i];
+        }
+        return result;
+    }
 }
 
 export default ThreeVector;

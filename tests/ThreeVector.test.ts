@@ -5,14 +5,14 @@ let w: ThreeVector;
 let alpha: number;
 let beta: number;
 
-describe("Tests for ThreeByThreeMatrix", () => {
+describe("Tests for ThreeVector", () => {
     beforeEach(() => {
         v = new ThreeVector([3, -4, 7]);
         w = new ThreeVector([-1, 6, -2]);
         alpha = -5;
         beta = 8;
     });
-    
+
     test("Should return correct value for 'magnitude' function", () => {
         expect(v.magnitude()).toEqual(8.6);
     });
@@ -36,5 +36,10 @@ describe("Tests for ThreeByThreeMatrix", () => {
     test("Should return correct value for 'scalarMultiply' when scalar is positive", () => {
         const result = new ThreeVector([24, -32, 56]);
         expect(v.scalarMultiply(beta)).toStrictEqual(result);
+    });
+
+    test("Should return correct value for 'dot' function", () => {
+        const result = -41;
+        expect(v.dot(w)).toStrictEqual(result);
     });
 });
