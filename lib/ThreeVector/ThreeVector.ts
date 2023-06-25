@@ -4,6 +4,8 @@ class ThreeVector {
     constructor(vector: [number, number, number]) {
         if (typeof vector === "undefined") {
             this._threeVector = ThreeVector.nullThreeVector;
+        } else if (!vector[0] || !vector[1] || !vector[2]) {
+            this._threeVector = ThreeVector.nullThreeVector;
         } else {
             this._threeVector = vector;
         }
@@ -58,6 +60,7 @@ class ThreeVector {
 
     public add(v: ThreeVector): ThreeVector {
         let result = this._threeVector;
+
         for (let i: number = 0; i < 3; i++) {
             result[i] = this._threeVector[i] + v.threeVector[i];
         }
@@ -65,7 +68,8 @@ class ThreeVector {
     }
 
     public subtract(v: ThreeVector): ThreeVector {
-        let result: [number, number, number] = [0, 0, 0];
+        let result = this._threeVector;
+
         for (let i: number = 0; i < 3; i++) {
             result[i] = this._threeVector[i] - v.threeVector[i];
         }

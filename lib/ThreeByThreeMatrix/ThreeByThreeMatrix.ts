@@ -5,23 +5,34 @@ class ThreeByThreeMatrix {
 
     constructor(matrix: [[number, number, number], [number, number, number], [number, number, number]]) {
         if (typeof matrix === "undefined") {
-            this._threeByThreeMatrix = ThreeByThreeMatrix.nullMatrix;
+            this._threeByThreeMatrix = ThreeByThreeMatrix.zeroMatrix;
         } else {
             this._threeByThreeMatrix = matrix;
         }
     }
-    
+    // private _threeByThreeMatrix: number[][];
+
+    // constructor() {
+    //     this._threeByThreeMatrix = [];
+
+    //     for(let i: number = 0; i < 3; i++) {
+    //         this._threeByThreeMatrix[i] = [];
+    //         for(let j: number = 0; j < 3; j++) {
+    //             this._threeByThreeMatrix[i][j] = new Thing();
+    //         }
+    //     }
+    // }
     /**
      * Return the numerical values of the three-by-three matrix
      */
-    public get threeByThreeMatrix(): [[number, number, number], [number, number, number], [number, number, number]] {
+    public get threeByThreeMatrix(): number[][] {
         return this._threeByThreeMatrix;
     }
     
     /**
      * Initialise the null matrix.
      */
-    public static get nullMatrix(): [[number, number, number], [number, number, number], [number, number, number]] {
+    public static get zeroMatrix(): [[number, number, number], [number, number, number], [number, number, number]] {
         return [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
     }
 
@@ -58,6 +69,7 @@ class ThreeByThreeMatrix {
 
     public subtract(M: ThreeByThreeMatrix): ThreeByThreeMatrix {
         let result = this._threeByThreeMatrix;
+
         for (let i: number = 0; i < 3; i++) {
             for (let j: number = 0; j < 3; j++) {
                 result[i][j] = this._threeByThreeMatrix[i][j] - M.threeByThreeMatrix[i][j];
@@ -68,6 +80,7 @@ class ThreeByThreeMatrix {
 
     public scalarMultiply(alpha: number): ThreeByThreeMatrix {
         let result = this._threeByThreeMatrix;
+
         for (let i: number = 0; i < 3; i++) {
             for (let j: number = 0; j < 3; j++) {
                 result[i][j] = this._threeByThreeMatrix[i][j]*alpha;
@@ -77,12 +90,12 @@ class ThreeByThreeMatrix {
     }
 
     public multiply(M: ThreeByThreeMatrix): ThreeByThreeMatrix {
-        let result = this._threeByThreeMatrix;
+        let result = ThreeByThreeMatrix.zeroMatrix;
+        let operand = this._threeByThreeMatrix;
         for (let i: number = 0; i < 3; i++) {
             for (let j: number = 0; j < 3; j++) {
-                result[i][j] = 0;
                 for (let k: number = 0; k < 3; k++) {
-                    result[i][j] += this._threeByThreeMatrix[i][k]*M.threeByThreeMatrix[k][j];
+                    result[i][j] += operand[i][k]*M.threeByThreeMatrix[k][j];
                 }
             }
         }
